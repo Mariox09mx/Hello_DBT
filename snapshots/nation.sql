@@ -1,4 +1,4 @@
-{% snapshot NATION %}
+{% snapshot nation %}
 
 {{
     config(
