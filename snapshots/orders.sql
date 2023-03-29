@@ -4,10 +4,10 @@
     config(
       target_database='analytics',
       target_schema='snapshots',
-      unique_key='o_orderKey',
+      unique_key='O_ORDERKEY',
 
       strategy='timestamp',
-      updated_at='o_orderDate',
+      updated_at='O_ORDERDATE',
     )
 }}
 
