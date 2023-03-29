@@ -2,12 +2,12 @@
 
 {{
     config(
-      target_database='analytics',
-      target_schema='snapshots',
+      target_database='ANALYTICS',
+      target_schema='SNAPSHOTS',
       unique_key='C_CUSTKEY',
 
       strategy='check',
-      check_cols=['C_NAME', 'C_ADDRESS', 'C_NATIONKEY', 'C_PHONE'],
+      check_cols=['C_NAME','C_ADDRESS','C_NATIONKEY','C_PHONE'],
     )
 }}
 
