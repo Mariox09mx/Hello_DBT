@@ -19,3 +19,11 @@ models:
             tests:
                 - unique
                 - not_null
+sources:
+  - name: TPCH_SF1
+    database: SNOWFLAKE_SAMPLE_DATA
+    schema: TPCH_SF1
+    tables:
+      - name: ORDERS
+      - name: CUSTOMER
+      - name: NATION
