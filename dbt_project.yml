@@ -35,3 +35,7 @@ models:
     # Applies to all files under models/example/
     example:
       materialized: view
+
+snapshots:
+  +target_database: ANALYTICS
+  +target_schema: SNAPSHOTS

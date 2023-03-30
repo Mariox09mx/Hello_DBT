@@ -2,8 +2,6 @@
 
 {{
     config(
-      target_database='ANALYTICS',
-      target_schema='SNAPSHOTS',
       unique_key='C_CUSTKEY',
 
       strategy='check',
