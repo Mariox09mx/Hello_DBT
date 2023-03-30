@@ -1,4 +1,4 @@
-{{ config(materialized='table') }}
+{{ config(materialized='view') }}
 
 select a.O_ORDERKEY,
 a.O_CUSTKEY,
