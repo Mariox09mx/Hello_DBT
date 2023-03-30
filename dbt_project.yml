@@ -1,7 +1,7 @@
 # Name your project! Project names should contain only lowercase characters
 # and underscores. A good package name should reflect your organization's
 # name or the intended use of these models
-name: 'my_new_project'
+name: 'dbt_snowflake'
 version: '1.0.0'
 config-version: 2
 
@@ -37,5 +37,6 @@ models:
       materialized: view
 
 snapshots:
-  +target_database: ANALYTICS
-  +target_schema: SNAPSHOTS
+  dbt_snowflake:
+    +target_database: ANALYTICS
+    +target_schema: SNAPSHOTS
