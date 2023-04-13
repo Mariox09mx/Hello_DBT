@@ -40,3 +40,12 @@ snapshots:
   my_new_project:
     +target_database: ANALYTICS
     +target_schema: SNAPSHOTS
+
+seeds:
+  my_seed:
+    enabled: true
+    seed_files:
+      - path: "seeds/src_sales.sql"
+        schema: public
+        table: src_sales
+        source_data: "data/fuente1.csv"
