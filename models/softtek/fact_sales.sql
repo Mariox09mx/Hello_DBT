@@ -1,11 +1,9 @@
 {{ 
     config(
         materialized='incremental',
-        unique_key='sales_id'
+        unique_key='sale_id',
     ) 
 }}
-
--- depends_on: {{ ref('fact_sales') }}
 
 SELECT
   sale_id,
@@ -18,5 +16,5 @@ SELECT
   CURRENT_TIMESTAMP() as audit_update_date
 FROM {{source('sales', 'src_sales')}}
 {% if is_incremental() %}
-WHERE update_src_date > (SELECT update_src_date FROM {{source('sales', 'fact_sales')}})
+WHERE update_src_date > (select max(update_src_date) from {{this}})
 {% endif %}
