@@ -42,10 +42,5 @@ snapshots:
     +target_schema: SNAPSHOTS
 
 seeds:
-  my_seed:
-    enabled: true
-    seed_files:
-      - path: "seeds/src_sales.sql"
-        schema: public
-        table: src_sales
-        source_data: "data/fuente1.csv"
+  dbt_test:
+    schema: DBT_DEV
