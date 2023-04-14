@@ -5,6 +5,8 @@
     ) 
 }}
 
+-- depends_on: {{ ref('fact_sales') }}
+
 SELECT
   sale_id,
   transaction_date,
@@ -14,7 +16,7 @@ SELECT
   status,
   update_src_date,
   CURRENT_TIMESTAMP() as audit_update_date
-FROM {{source('src_sales', 'src_sales')}}
+FROM {{source('sales', 'src_sales')}}
 {% if is_incremental() %}
-WHERE update_src_date > (SELECT update_src_date FROM {{ref('fact_sales')}})
+WHERE update_src_date > (SELECT update_src_date FROM {{source('sales', 'fact_sales')}})
 {% endif %}

@@ -27,3 +27,9 @@ sources:
       - name: ORDERS
       - name: CUSTOMER
       - name: NATION
+  - name: sales
+    schema: dbt_dev
+    database: ANALYTICS
+    tables:
+      - name: src_sales
+      - name: fact_sales
