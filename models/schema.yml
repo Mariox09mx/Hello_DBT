@@ -2,23 +2,22 @@
 version: 2
 
 models:
-    - name: my_first_dbt_model
-      description: "A starter dbt model"
+    - name: fact_sales
+      tests:
+        - dbt_expectations.expect_table_row_count_to_be_between:
+            min_value: 2
+            group_by: [transaction_date]
       columns:
-          - name: id
-            description: "The primary key for this table"
+          - name: sale_id
             tests:
-                - unique
-                - not_null
-
-    - name: my_second_dbt_model
-      description: "A starter dbt model"
-      columns:
-          - name: id
-            description: "The primary key for this table"
+              - dbt_expectations.expect_column_values_to_not_be_null
+              - dbt_expectations.expect_column_values_to_be_unique
+          - name: unit_amount
             tests:
-                - unique
-                - not_null
+            - dbt_expectations.expect_column_values_to_be_between:
+                min_value: 1  
+                max_value: 10
+                strictly: false
 sources:
   - name: TPCH_SF1
     database: SNOWFLAKE_SAMPLE_DATA
